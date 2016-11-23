@@ -1,0 +1,6 @@
+{
+	"directory": "src/main/resources/public/bower_components",
+	"strict-ssl": false,
+	"json": "bower.json",
+	"registry": "http://bower.herokuapp.com"
+}

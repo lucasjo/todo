@@ -7,6 +7,7 @@
 package lucasjo.todo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import lucasjo.todo.model.Todo;
 
@@ -21,6 +22,7 @@ import lucasjo.todo.model.Todo;
  * @Version    
  *
  */
+@Repository
 public interface TodoRepository extends JpaRepository<Todo, Long> {
 
 }
