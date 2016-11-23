@@ -11,9 +11,11 @@ import java.util.Map;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import lucasjo.todo.model.Todo;
+import lucasjo.todo.repository.TodoRepository;
 
 /**
  * <pre>
@@ -30,24 +32,27 @@ import lucasjo.todo.model.Todo;
 @Transactional
 public class TodoServiceImpl implements TodoService {
 
+	@Autowired
+	private TodoRepository todoRepo;
 	
 	@Override
 	public List<Todo> findTodoList() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return todoRepo.findAll();
 	}
 
 	
 	@Override
 	public void save(Todo todo) throws Exception {
-		// TODO Auto-generated method stub
-
+		
+		todoRepo.save(todo);
 	}
 
 	
 	@Override
 	public void save(List<Todo> todos) throws Exception {
-		// TODO Auto-generated method stub
+		
+		todoRepo.save(todos);
 
 	}
 
@@ -55,7 +60,7 @@ public class TodoServiceImpl implements TodoService {
 	@Override
 	public Todo findTodo(Map<String, Object> param) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return todoRepo.findOne(Long.valueOf(String.valueOf(param.get("id"))));
 	}
 
 }
