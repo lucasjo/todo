@@ -1,0 +1,93 @@
+body {
+	background-color : #ffffff;
+	
+}
+/* mobile header bar */
+.header-bar {
+	background-image: linear-gradient(0deg, #f34d78, #f34d78 50%, transparent 50%);
+    background-position: bottom;
+    background-size: 100% 5px;
+    background-repeat: no-repeat;
+    position: absolute;
+  	right: 0;
+ 	left: 0;
+  	z-index: 100;
+  	height : 48px;
+  	overflow : hidden;
+}
+
+.header-bar .navbar-title {
+	padding-top : 15px;
+	font-weight : bold;
+}
+
+.header-bar .buttons {
+	position : absolute;
+}
+
+.title-center {
+	text-align : center;
+	font-size  : 18px;
+}
+
+.title-button {
+	padding-top : 15px;
+}
+
+.scrollable-content {   
+  position: absolute;
+  top: 50px;
+  right: 5px;
+  bottom: 0;
+  left: 5px;
+  overflow: hidden;
+  margin-top: -1px;
+  padding-top: 1px;
+  margin-bottom: -1px;
+  width: auto;
+  height: auto;
+  
+}
+
+.btn-clear {
+	background: none;
+}
+
+/* position */
+.p-right {
+	top: 3px;
+    right: 5px;
+    bottom: 5px; 
+}
+
+.p-left {
+	top: 3px;
+    left: 5px;
+    bottom: 5px; 
+}
+
+/* sidenav */
+.md-sidenav-right .mb-bgcolor {
+	background-image: linear-gradient(0deg, #f34d78, #f34d78 50%, transparent 50%);
+    background-position: bottom;
+    background-size: 100% 5px;
+    background-repeat: no-repeat;
+	background-color : #e9e9e9;
+	color : #333;
+	font-weight : 400;
+	font-size : 14px;
+}
+
+@media (min-width: 0) and (max-width: 959px) and (orientation: portrait) {
+  md-toolbar {
+    min-height: 40px; }
+  .md-toolbar-tools {
+    height: 40px;
+    max-height: 40px; } }
+
+@media (min-width: 0) and (max-width: 959px) and (orientation: landscape) {
+  md-toolbar {
+    min-height: 48px; }
+  .md-toolbar-tools {
+    height: 48px;
+    max-height: 48px; } }

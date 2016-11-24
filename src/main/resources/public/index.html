@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>TODO</title>
+    <meta name="description" content="">   
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
+    <!-- font-awsome -->
+    <link rel="stylesheet" href="./bower_components/font-awsome/css/font-awesome.min.css" />
+    <!-- bootstrap css only -->
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+<!--     <link rel="stylesheet" href="./bower_components/angular-ui-select/dist/select.css" /> -->
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
+
+	
+	<!-- custom css -->
+	<link rel="stylesheet" href="./assets/css/main.css" />
+    
+</head>
+<body data-ng-app="todo">	
+	<div class="header-bar" data-ng-controller="headerCtrl">
+		<div class="buttons p-left">
+			<span class="btn title-button">
+				<i class="fa fa-list fa-lg" aria-hidden="true"></i>
+			</span>
+		</div>
+		<p class="navbar-title title-center">TODO</p>
+		<div class="buttons p-right">
+			<button class="btn title-button btn-clear" type="button" data-ng-click="toggleRight()">
+				<i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+			</button>
+		</div>				
+	</div>
+	<div class="scrollable-content" data-ng-controller="appCtrl">
+		<md-content class="md-padding">
+			<md-tabs md-selected="selectedIndex" md-dynamic-height md-border-bottom md-autoselect md-swipe-content="true" flex>
+<!-- 				<md-tab data-ng-repeat="tab in tabs" label="{{tab.title}}"> -->
+				<md-tab data-ng-repeat="tab in tabData" label={{tab.text}}>
+					<md-tab-body>
+						<md-list>
+							<md-list-item data-ng-repeat="item in tab.data">
+								<div class="md-list-item-text">
+									<p>{{item.text}}</p>
+									
+									<md-button class="md-secondary" data-ng-click="doDone(item)" data-ng-if="item.toDoSts == '01'">
+										<i class="fa fa-check-circle fa-2x" aria-label="true"></i>
+									</md-button>
+									<md-button class="md-secondary" data-ng-click="doDelete(item)" data-ng-if="item.toDoSts == '02'">
+										<i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+									</md-button>
+								</div>
+								<md-divider></md-divider>		
+							</md-list-item>												
+						</md-list>
+					</md-tab-body>
+				</md-tab>				
+			</md-tabs>
+		</md-content>
+		<!-- rightNav -->
+		<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+		
+	      <md-toolbar class="mb-bgcolor">
+		        <h1 class="md-toolbar-tools">TODO 작성</h1>
+	      </md-toolbar>
+	      <md-content ng-controller="RightCtrl" layout-padding>
+	      	<div>
+	      		<md-input-container flex class="md-title">
+		            <label>text</label>
+		            <input type="text" data-ng-model="data.text" flex="60" id="text"/>	
+		            <md-button class="md-raised" data-ng-click="addTodo()" >
+			         	ADD
+			        </md-button>	            
+	          	</md-input-container>
+	          	     				          	
+	      	</div>
+	      	
+	        
+	      </md-content>
+		
+		 </md-sidenav>
+	</div>
+	
+	
+
+	
+	
+	
+	
+
+	<!-- jquery 1.12.4 -->
+	<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+	<!-- angularjs 1.5.8 -->
+	<script src="./bower_components/angular/angular.min.js"></script>
+	<script src="./bower_components/angular-resource/angular-resource.min.js"></script>
+	<script src="./bower_components/angular-route/angular-route.min.js"></script>
+	<script src="./bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+	<script src="./bower_components/angular-animate/angular-animate.min.js"></script>
+	<script src="./bower_components/angular-cookies/angular-cookies.min.js"></script>
+	<script src="./bower_components/angular-i18n/angular-locale_ko-kr.js"></script>
+	<script src="./bower_components/angular-aria/angular-aria.min.js"></script>    
+    <script src="./bower_components/angular-material/angular-material.js"></script>
+<!--     <script src="./bower_components/ngstorage/ngStorage.min.js"></script> -->
+	<!-- bootstrap  -->
+	<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- 	<script src="./bower_components/angular-ui-select/dist/select.js"></script> -->
+	
+	
+	<!-- datetime lib -->
+	<script src="./bower_components/moment/min/moment.min.js"></script>
+	<script src="./bower_components/moment/min/locales.min.js"></script>
+	<!-- modal -->
+		
+	<script src="./bower_components/bootbox.js/bootbox.js"></script>
+	
+	<script src="./assets/js/app.js"></script>
+	
+<!-- 	<script src="./assets/js/controller/searchController.js"></script> -->
+	<!-- mobile common directive  --> 
+
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//moment 한글
+			moment.locale('ko');
+			
+			
+		});
+	</script>
+</body>
+</html>

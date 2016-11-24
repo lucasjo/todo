@@ -72,4 +72,16 @@ public interface TodoService {
 	 * @throws Exception
 	 */
 	Todo findTodo(Map<String,Object> param) throws Exception;
+	
+	/**
+	 * <pre>
+	 * @Description : 삭제
+	 * </pre>
+	 * @Method Name : delete
+	 * @Date        : 2016. 11. 24.
+	 * @author      : kikimans 
+	 * @param todo
+	 * @throws Exception
+	 */
+	void delete(Todo todo) throws Exception;
 }

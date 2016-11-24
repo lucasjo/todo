@@ -43,24 +43,28 @@ public class TodoServiceImpl implements TodoService {
 
 	
 	@Override
-	public void save(Todo todo) throws Exception {
-		
-		todoRepo.save(todo);
+	public void save(Todo todo) throws Exception {		
+		todoRepo.save(todo);		
 	}
 
 	
 	@Override
-	public void save(List<Todo> todos) throws Exception {
-		
+	public void save(List<Todo> todos) throws Exception {		
 		todoRepo.save(todos);
-
 	}
+	
+	
 
 	
 	@Override
-	public Todo findTodo(Map<String, Object> param) throws Exception {
-		// TODO Auto-generated method stub
+	public Todo findTodo(Map<String, Object> param) throws Exception {		
 		return todoRepo.findOne(Long.valueOf(String.valueOf(param.get("id"))));
+	}
+
+
+	@Override
+	public void delete(Todo todo) throws Exception {
+		todoRepo.delete(todo);		
 	}
 
 }
